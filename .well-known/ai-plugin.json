@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "lions_geneve_newsletter",
+  "name_for_human": "Lions de Genève Newsletter Assistant",
+  "description_for_model": "Assistant GPT pour générer des newsletters des Lions de Genève. Il puise automatiquement les actualités, matchs, joueurs et sponsors depuis le site officiel lionsdegeneve.ch.",
+  "description_for_human": "Rédigez des newsletters puissantes et personnalisées à partir des infos du site officiel des Lions de Genève (matchs, résultats, news, joueurs, sponsors).",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://gzouui.github.io/lions-geneve-plugin/.well-known/openapi.yaml"
+  },
+  "logo_url": "https://gzouui.github.io/lions-geneve-plugin/logo.png",
+  "contact_email": "communication@lionsdegeneve.ch",
+  "legal_info_url": "https://www.lionsdegeneve.ch/mentions-legales"
+}
