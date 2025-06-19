@@ -1,0 +1,116 @@
+openapi: 3.0.1
+info:
+  title: API Lions de Genève Newsletter
+  version: 1.0.0
+  description: >
+    API interne simulée pour générer des newsletters à partir des données disponibles sur le site officiel des Lions de Genève : matchs, actualités, joueurs, partenaires.
+servers:
+  - url: https://gzouui.github.io/lions-geneve-plugin
+paths:
+  /news:
+    get:
+      summary: Dernières actualités
+      description: Récupère les 5 dernières actualités depuis lionsdegeneve.ch
+      responses:
+        '200':
+          description: Liste des actualités
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  news:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        summary:
+                          type: string
+                        date:
+                          type: string
+                          format: date
+                        url:
+                          type: string
+
+  /schedule:
+    get:
+      summary: Calendrier des matchs
+      description: Liste des prochains matchs à domicile et à l'extérieur.
+      responses:
+        '200':
+          description: Liste des matchs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  matches:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          format: date
+                        opponent:
+                          type: string
+                        time:
+                          type: string
+                        location:
+                          type: string
+
+  /players:
+    get:
+      summary: Fiches joueurs
+      description: Récupère les noms, postes et statistiques clés des joueurs
+      responses:
+        '200':
+          description: Données des joueurs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  players:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        position:
+                          type: string
+                        stats:
+                          type: object
+                          properties:
+                            points_per_game:
+                              type: number
+                            rebounds_per_game:
+                              type: number
+                            assists_per_game:
+                              type: number
+
+  /sponsors:
+    get:
+      summary: Liste des sponsors
+      description: Informations de base sur les sponsors visibles sur le site.
+      responses:
+        '200':
+          description: Sponsors list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sponsors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        visibility_score:
+                          type: number
+                          nullable: true
